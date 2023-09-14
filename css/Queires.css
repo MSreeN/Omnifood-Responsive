@@ -1,4 +1,8 @@
 /**************************/
+/* Below 1344px(smaller desktops) */
+/**************************/
+
+/**************************/
 /* HERO SECTION */
 /**************************/
 
@@ -13,5 +17,15 @@
 
   .gallery{
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/**************************/
+/* Below 1200px(landscape tablets) */
+/**************************/
+
+@media(max-width: 75em){
+  html{
+    font-size: 56%;
   }
 }
