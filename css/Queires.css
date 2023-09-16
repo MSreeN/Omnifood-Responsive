@@ -141,7 +141,7 @@
     opacity: 0;
     pointer-events: none;
     visibility: none;
-    transition: all 0.4s;
+    transition: all 0.8s ease-in;
   }
 
   .main-nav-list {
@@ -165,6 +165,11 @@
   }
   .nav-open .icon-mobile-nav[name = "menu-outline"]{
     display: none;
+  }
+
+  .nav-open .main-nav{
+    transition: all 0.8s ease-out;
+    transform: translateX(0);
   }
 }
 
