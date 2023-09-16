@@ -130,6 +130,7 @@
     height: 100vh;
     width: 100%;
     background-color: #fff;
+    transform: translateX(100%);
 
     display: flex;
     /* flex-direction: row-reverse; */
@@ -138,6 +139,8 @@
 
     /* Hiding navigation */
     opacity: 0;
+    pointer-events: none;
+    visibility: none;
     transition: all 0.4s;
   }
 
@@ -153,8 +156,15 @@
 
   .nav-open .main-nav{
     opacity: 1;
-    pointer-events: none;
+    pointer-events: auto;
     visibility: visible;
+  }
+
+  .nav-open .icon-mobile-nav[name = "close-outline"]{
+    display: block;
+  }
+  .nav-open .icon-mobile-nav[name = "menu-outline"]{
+    display: none;
   }
 }
 
