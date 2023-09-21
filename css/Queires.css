@@ -211,6 +211,35 @@
     grid-column: span 3;
   }
 }
+
+/**************************/
+/* Below 544px(Phones) */
+/**************************/
+@media (max-width: 34rem) {
+  .grid--2-cols,
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 0 3.2rem;
+  }
+
+  .section-hero {
+    padding: 2.4rem 0 6.4rem 0;
+  }
+
+  .btn,
+  .btn:link,
+  .btn:visited {
+    padding: 2.2rem 1.6rem;
+  }
+
+  .hero-img {
+    width: 80%;
+  }
+}
 /* - Font sizes (px)
 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98 */
 
