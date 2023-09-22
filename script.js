@@ -6,6 +6,7 @@ const mainNavList = document.querySelector(".main-nav-list");
 mobileNavBtn.addEventListener("click", function (e) {
   header.classList.toggle("nav-open");
 });
+const allLinks = document.querySelectorAll("a");
 
 //closing mobile when clicked on any one of link
 mainNavList.addEventListener("click", function (e) {
@@ -22,6 +23,27 @@ mainNavList.addEventListener("click", function (e) {
   }
 });
 
+console.log(allLinks);
+Array.from(allLinks).forEach(function (link) {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (link.getAttribute("href") === "#") {
+      console.log(link.getAttribute("href"));
+      header.scrollIntoView({
+        // top: 0,
+        behavior: "smooth",
+      });
+    }
+
+    if (link.getAttribute("href") !== "#") {
+      console.log(link.getAttribute("href"));
+      document
+        .querySelector(link.getAttribute("href"))
+        .scrollIntoView({ behavior: "smooth" });
+    }
+  });
+});
+
 ///////////////////////////////////////////////////////////
 // Fixing flexbox gap property missing in some Safari versions
 function checkFlexGap() {
@@ -36,7 +58,7 @@ function checkFlexGap() {
   document.body.appendChild(flex);
   var isSupported = flex.scrollHeight === 1;
   flex.parentNode.removeChild(flex);
-  console.log(isSupported);
+  // console.log(isSupported);
 
   if (!isSupported) document.body.classList.add("no-flexbox-gap");
 }
@@ -45,7 +67,6 @@ checkFlexGap();
 ///////
 const year = document.querySelector(".year");
 year.textContent = new Date().getFullYear();
-console.log(year);
 
 // https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js
 
