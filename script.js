@@ -1,9 +1,25 @@
 const header = document.querySelector(".header");
 const nav = document.querySelector(".main-nav");
 const mobileNavBtn = document.querySelector(".btn-mobile-nav");
-
+const mainNavList = document.querySelector(".main-nav-list");
+//Mobile nav open and  close functionality
 mobileNavBtn.addEventListener("click", function (e) {
   header.classList.toggle("nav-open");
+});
+
+//closing mobile when clicked on any one of link
+mainNavList.addEventListener("click", function (e) {
+  if (e.target.classList.contains("main-nav-link")) {
+    header.classList.toggle("nav-open");
+    const goToSectionName = `section-${e.target.textContent
+      .split(" ")
+      .shift()
+      .toLowerCase()}`;
+    document
+      .querySelector(`.${goToSectionName}`)
+      .scrollIntoView({ behavior: "smooth" });
+    console.log(document.querySelector(`.${goToSectionName}`));
+  }
 });
 
 ///////////////////////////////////////////////////////////
