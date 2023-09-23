@@ -7,6 +7,8 @@ mobileNavBtn.addEventListener("click", function (e) {
   header.classList.toggle("nav-open");
 });
 const allLinks = document.querySelectorAll("a");
+const sectionFeatured = document.querySelector(".section-featured");
+const sectionHero = document.querySelector(".section-hero");
 
 //closing mobile when clicked on any one of link
 mainNavList.addEventListener("click", function (e) {
@@ -43,6 +45,32 @@ Array.from(allLinks).forEach(function (link) {
     }
   });
 });
+
+//////////Implementing sticky nav using observer api
+
+const observer = new IntersectionObserver(
+  function (entries, observer) {
+    console.log(entries);
+    const [entry] = entries;
+    if (entry.isIntersecting) {
+      console.log("yes");
+      header.classList.remove("sticky");
+      sectionHero.style.marginTop = "0px";
+    } else {
+      header.classList.add("sticky");
+      sectionHero.style.marginTop = "96px";
+      console.log("no");
+    }
+  },
+  {
+    root: null,
+    threshold: [0],
+    rootMargin: "-80px",
+  }
+);
+
+//attaching observer to featured section
+observer.observe(sectionHero);
 
 ///////////////////////////////////////////////////////////
 // Fixing flexbox gap property missing in some Safari versions
